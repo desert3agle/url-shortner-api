@@ -18,7 +18,7 @@ exports.createShortUrl = async (req, res) => {
          * @description      duplication check
          */
 
-        const exists = await Url.findOne({ orginal_url: req.body.url });
+        const exists = await Url.findOne({ original_url: req.body.url });
         if (exists) return res.status(200).json(exists);
 
 
@@ -43,12 +43,12 @@ exports.createShortUrl = async (req, res) => {
          */
 
         const newUrl = new Url({
-            orginal_url: input_url,
+            original_url: input_url,
             short_url: short_url
         });
         const savedData = await newUrl.save();
 
-        responseObject['orginal_url'] = savedData.orginal_url;
+        responseObject['original_url'] = savedData.original_url;
         responseObject['short_url'] = savedData.short_url;
 
         res.status(201).json(responseObject);
@@ -65,7 +65,7 @@ exports.redirectToUrl = async (req, res) => {
     try {
         const response = await Url.findOne({ short_url: req.params.url });
         if (!response) return res.status(404).json({ error: 'NOT FOUND' });
-        res.status(302).redirect(response.orginal_url);
+        res.status(302).redirect(response.original_url);
 
     } catch (err) {
         res
