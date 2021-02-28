@@ -1,47 +1,73 @@
 # URL shortner API
 
-let users to shorten urls. feel free to use this as your server side of your application.
-
+lets users shorten urls. feel free to use this as server side of your application.
 
 You can:
   - shorten urls
   - access shortened urls
   
-
-### TODO :
+<!-- 
+## ToDO 
   - write tests
   - Deploy
   - swagger-ui for API documentation 
+-->
 
-### Tech
+## Built With
 
-URL shortner uses : 
 
 * [NodeJS](https://nodejs.org/en/docs/) -  evented I/O for the backend
 * [Express](https://expressjs.com/) - framework for backend
-* [Mongoose](https://mongoosejs.com/) -ODM
+* [Mongoose](https://mongoosejs.com/) - ODM
 * [MongoDB](https://www.mongodb.com/) - Database
 * [Swagger](https://swagger.io/) - API Documentation
 
-### Local Run
 
-Install dependencies :
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+you need to have NodeJs and MogoDb installed on your local machine.
+
+
+
+### Installation
+
+To install NodeJs 12.xx and MongoDb 4.x
+
+```sh
+$ chmod +x install.sh
+$ ./install.sh
+```
+
+Install dependencies 
 
 ```sh
 $ npm install
 ```
 
-Set up environment variables :
+Set up environment variables 
 
 ```sh
 $ cp .env.template .env
 ```
+### Local Run
 
-Provide correct values in .env and proceed with local run :
+Provide correct values in .env and proceed with local run 
 
 ```sh
 $ npm start
 ```
+<!--
+## Testing
+## Deployment
+-- >
+
+## Authors
+
+* **Harsh Vardhan** - *Initial work* - [desert3agle](https://github.com/desert3agle)
 
 
 
