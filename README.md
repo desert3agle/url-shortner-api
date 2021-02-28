@@ -15,13 +15,13 @@ You can:
 
 ### Tech
 
-Xmeme backend uses : 
+URL shortner uses : 
 
-* [NodeJS] -  evented I/O for the backend
-* [Express] - framework for backend
-* [Mongoose] -ODM
-* [MongoDB] - Database
-* [Swagger] - API Documentation
+* [NodeJS](https://nodejs.org/en/docs/) -  evented I/O for the backend
+* [Express](https://expressjs.com/) - framework for backend
+* [Mongoose](https://mongoosejs.com/) -ODM
+* [MongoDB](https://www.mongodb.com/) - Database
+* [Swagger](https://swagger.io/) - API Documentation
 
 ### Local Run
 
