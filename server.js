@@ -4,8 +4,11 @@ const shorturlRoute = require('./routes/shorturl');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 require('dotenv').config()
+
+//swagger-ui
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocs = require('./swagger.json');
 
 
 //env variables
@@ -24,6 +27,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use('/api/shorturl', shorturlRoute);
+
+app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 
 /* root */

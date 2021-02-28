@@ -1,0 +1,81 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "URL Shortner API",
+    "description": "This API lets users to shorten URLs ",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8081",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/api/shorturl/new": {
+      "post": {
+        "tags": [
+          "/api/shorturl"
+        ],
+        "summary": "Creates a short url",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "url",
+            "schema": {
+              "$ref": "#/definitions/PostUrl"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK (record already exists for the requested url)",
+            "schema": {
+              "$ref": "#/definitions/Url"
+            }
+          },
+          "201": {
+            "description": "Created (new record created)",
+            "schema": {
+              "$ref": "#/definitions/Url"
+            }
+          },
+          "400": {
+            "description": "Bad request (request body does not have url)"
+          },
+          "406": {
+            "description": "Not Acceptable ({error : 'invalid url'})"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Url": {
+      "properties": {
+        "original_url": {
+          "type": "string",
+          "example": "https://google.com"
+        },
+        "short_url": {
+          "type": "string",
+          "example": "AtSuGT"
+        }
+      },
+      "required": [
+        "original_url",
+        "short_url"
+      ]
+    },
+    "PostUrl": {
+      "properties": {
+        "url": {
+          "type": "string",
+          "example": "https://google.com"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  }
+}
