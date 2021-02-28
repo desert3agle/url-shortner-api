@@ -1,36 +1,25 @@
 const Url = require('../models/Url');
-const dns = require('dns');
 
 exports.createShortUrl = async (req, res) => {
     try {
 
-        if (!req.body.url) return res.status(400).send('BAD REQUEST');
+        if (!req.body.url) return res.status(400).json({ error: 'BAD REQUEST' });
 
         let input_url = req.body.url;
-        let responseObject = {};
-
-        /**
-         * @description      validation test
-         * 
-         */
         let urlRegex = new RegExp(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi);
-        if (!input_url.match(urlRegex)) return res.status(400).json({ error: 'invalid url' });
 
+        // validation
+        if (!input_url.match(urlRegex)) return res.status(406).json({ error: 'invalid url' });
 
+        // duplication check
+        const exists = await Url.findOne({ original_url: input_url });
 
-        /**
-         * @description      duplication check
-         */
+        if (exists) return res.status(200).json({
+            original_url: exists.original_url,
+            short_url: exists.short_url
+        });
 
-        const exists = await Url.findOne({ original_url: req.body.url });
-        if (exists) return res.status(200).json(exists);
-
-
-        /**
-         * @method           getrandom()
-         * @description      genrate random string
-         */
-
+        // random string generation
         function getrandom() {
             const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             let random_string = "";
@@ -41,21 +30,18 @@ exports.createShortUrl = async (req, res) => {
         }
         const short_url = getrandom();
 
-
-        /**
-         * @description     create new record
-         */
-
+        //new record
         const newUrl = new Url({
             original_url: input_url,
             short_url: short_url
         });
         const savedData = await newUrl.save();
 
-        responseObject['original_url'] = savedData.original_url;
-        responseObject['short_url'] = savedData.short_url;
+        res.status(201).json({
+            original_url: savedData.original_url,
+            short_url: savedData.short_url
+        });
 
-        res.status(201).json(responseObject);
     } catch (err) {
         res
             .status(err.status || 500)
@@ -75,10 +61,9 @@ exports.redirectToUrl = async (req, res) => {
         res
             .status(err.status || 500)
             .type("txt")
-            .send(err.message || "SERVER ERROR");// research more on error handaling
+            .send(err.message || "SERVER ERROR");
     }
 }
-
 
 
 
