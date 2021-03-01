@@ -47,6 +47,31 @@
           }
         }
       }
+    },
+    "/api/shorturl/{shortURL}": {
+      "get": {
+        "tags": [
+          "/api/shorturl"
+        ],
+        "summary": "Redirects to original url. try this out in your browser! (swagger doesn't allow curl request without headers redirection doesn't responds with any headers)",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "shortURL",
+            "description": "short-url assigned to url. (try this in browser! swagger doesn't allow curl request without headers and redirection doesn't responds with any headers)",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Found, Redirected"
+          },
+          "404": {
+            "description": "NOT FOUND"
+          }
+        }
+      }
     }
   },
   "definitions": {

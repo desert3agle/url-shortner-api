@@ -1,6 +1,6 @@
-# URL shortner API
+# URL Shortner API
 
-lets users shorten urls. feel free to use this as server side of your application.
+A minimal URL shortner. feel free to use this as server side of your application.
 
 You can:
   - shorten urls
