@@ -71,13 +71,13 @@ Heroku Deployment
 
 ```sh
 $ heroku login -i
-$ heroku git:remote -a &lt;your-app-name&gt;
+$ heroku git:remote -a <your-app-name>
 $ git push heroku master
 ```
 Set up environment variables 
 
 ```sh
-$ heroku config:set ENV_VAR=&lt;value&gt;
+$ heroku config:set ENV_VAR=<value>
 ```
 
 ## Authors
