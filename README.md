@@ -6,7 +6,7 @@ You can:
   - shorten urls
   - access shortened urls
 
-* **API Documentation - [Docs](https://sho-rt-api.herokuapp.com/swagger-ui/)**
+**API Documentation - [Docs](https://sho-rt-api.herokuapp.com/swagger-ui/)**
   
 <!-- 
 ## ToDO 
