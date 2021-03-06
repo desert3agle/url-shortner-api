@@ -5,6 +5,8 @@ A minimal URL shortner. feel free to use this as server side of your application
 You can:
   - shorten urls
   - access shortened urls
+
+* **API Documentation - [Docs](https://sho-rt-api.herokuapp.com/swagger-ui/)**
   
 <!-- 
 ## ToDO 
@@ -62,8 +64,21 @@ $ npm start
 ```
 <!--
 ## Testing
-## Deployment
 -->
+## Deployment
+
+Heroku Deployment
+
+```sh
+$ heroku login -i
+$ heroku git:remote -a &lt;your-app-name&gt;
+$ git push heroku master
+```
+Set up environment variables 
+
+```sh
+$ heroku config:set ENV_VAR=&lt;value&gt;
+```
 
 ## Authors
 
