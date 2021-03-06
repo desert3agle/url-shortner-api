@@ -53,7 +53,7 @@
         "tags": [
           "/api/shorturl"
         ],
-        "summary": "Redirects to original url. try this out in your browser! (swagger doesn't allow curl request without headers redirection doesn't responds with any headers)",
+        "summary": "Redirects to original url. (try this out in your browser! swagger doesn't allow curl request without headers and redirection doesn't responds with any headers)",
         "parameters": [
           {
             "in": "path",
