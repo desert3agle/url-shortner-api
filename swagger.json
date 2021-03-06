@@ -5,7 +5,7 @@
     "description": "This API lets users to shorten URLs ",
     "version": "1.0.0"
   },
-  "host": "localhost:8081",
+  "host": "sho-rt-api.herokuapp.com",
   "schemes": [
     "https",
     "http"
