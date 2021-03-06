@@ -2,12 +2,13 @@
 
 A minimal URL shortner. feel free to use this as server side of your application.
 
+**API Documentation - [Docs](https://sho-rt-api.herokuapp.com/swagger-ui/)**
+
 You can:
   - shorten urls
   - access shortened urls
 
-**API Documentation - [Docs](https://sho-rt-api.herokuapp.com/swagger-ui/)**
-  
+ 
 <!-- 
 ## ToDO 
   - write tests
